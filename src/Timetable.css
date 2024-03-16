@@ -1,0 +1,180 @@
+h1, h2, h3, h4, h5 {
+    margin: 0;
+}
+
+.active {   
+    display: flex;
+    opacity: 1;
+}
+
+.inactive {
+    display: none;
+    z-index: -1;
+    opacity: 0;
+}
+
+.timetableWrap {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    padding: 24px;
+    width: 50vw;
+    max-width: 600px;
+    position: relative;
+    background-color: white;
+}
+
+.timetableContent {
+    position: inherit;
+}
+
+.headerWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+}
+
+.currentWrap {
+    padding-bottom: 24px;
+}
+
+.timeWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 24px;
+}
+
+.buttonWrap {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 48px;
+    padding-right: 48px;
+    padding-bottom: 48px;
+    padding-top: 24px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 12px 18px;
+    color: white;
+    background-color: rgb(59, 59, 59);
+}
+
+.settingsButton{
+    position: inherit;
+    z-index: 10;
+    display: flex;
+    justify-content: right;
+}
+
+.settingsButton button {
+    background-color: grey;
+    padding: 6px;
+}
+
+.settingsWrap {
+    transition: 50ms linear;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: rgb(221, 221, 221);
+    z-index: 5;
+}
+
+.settingsContent1, .settingsContent2 {
+    padding: 24px;
+}
+
+.settingsContent2 {
+    max-width: 50%;
+}
+
+.enableSeconds {
+    padding-bottom: 12px;
+}
+
+.changeTime {
+    padding-bottom: 12px;
+}
+
+.changeTime input {
+    border: none;
+    width: 56px;
+    border-radius: 3px;
+}
+
+.changeHours {
+    padding-top: 12px;
+}
+
+.changeMinutes {
+    padding-bottom: 24px;
+}
+
+.hoursInput, .minutesInput {
+    margin-right: 12px;
+}
+
+.changeButtons {
+    transition: 200ms linear all;
+}
+
+.hoursButton {
+    margin-right: 12px;
+}
+
+.hoursButton:hover {
+    color: rgb(0, 255, 166);
+}
+
+.minutesButton:hover {
+    color: rgb(255, 70, 70);
+}
+
+.resetButton {
+    padding-bottom: 12px;
+}
+
+.resetButton button:hover {
+    transition: 200ms linear;
+    background-color: rgb(135, 0, 0);
+}
+
+.timeTracked {
+    background-color: rgb(50, 50, 50);
+    padding: 6px 12px;
+    border-radius: 25px;
+    color: white;
+    bottom: 24px;
+    right: 150px;
+    position: absolute;
+}
+
+@keyframes colorChange {
+    0% {color: rgb(255, 89, 0);}
+    20% {color: rgb(43, 255, 117);}
+    45% {color: rgb(33, 189, 200);}
+    65% {color: rgb(150, 85, 255);}
+    90% {color: blue;}
+    100% {color: rgb(255, 115, 0);}
+}
+
+.timeTracked span {
+    animation: colorChange forwards 20s infinite;
+    font-weight: 700;
+}
+
+.areYouSure {
+    padding-bottom: 12px;
+    position: absolute;
+}
+
+.areYouSure button {
+    margin-right: 12px;
+}
