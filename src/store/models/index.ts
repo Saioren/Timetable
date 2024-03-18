@@ -1,18 +1,21 @@
 import { Action, Thunk, action, thunk } from "easy-peasy";
 
 interface UpdateDataPayload {
-    name: string;
-    course: string;
+    weeklyTime: string;
+    totalTime: string;
+    currentTime: string;
 }
 
 export interface StoreModelState {
-    name: string;
-    course: string;
+    weeklyTime: string;
+    totalTime: string;
+    currentTime: string;
 }
 
 export interface StoreModelActions {
-    setName: Action<this, string>;
-    setCourse: Action<this, string>;
+    setWeeklyTime: Action<this, string>;
+    setTotalTime: Action<this, string>;
+    setCurrentTime: Action<this, string>;
 }
 
 export interface StoreModelThunks {
@@ -21,23 +24,30 @@ export interface StoreModelThunks {
 
 export interface StoreModel extends StoreModelState, StoreModelActions, StoreModelThunks {}
 
-const storedName = localStorage.getItem('name') || 'evan';
-const storedCourse = localStorage.getItem('course') || 'learn ez';
+const storedWeeklyTime = localStorage.getItem('weeklyTime') || '0';
+const storedTotalTime = localStorage.getItem('totalTime') || '0';
+const storedCurrentTime = localStorage.getItem('currentTime') || '0';
 
 const model: StoreModel = {
-    name: storedName,
-    course: storedCourse,
-    setName: action((state, payload) => {
-        state.name = payload;
-        localStorage.setItem('name', payload);
+    weeklyTime: storedWeeklyTime,
+    totalTime: storedTotalTime,
+    currentTime: storedCurrentTime,
+    setWeeklyTime: action((state, payload) => {
+        state.weeklyTime = payload;
+        localStorage.setItem('weeklyTime', payload);
     }),
-    setCourse: action((state, payload) => {
-        state.course = payload;
-        localStorage.setItem('course', payload);
+    setTotalTime: action((state, payload) => {
+        state.totalTime = payload;
+        localStorage.setItem('totalTime', payload);
+    }),
+    setCurrentTime: action((state, payload) => {
+        state.currentTime = payload;
+        localStorage.setItem('currentTime', payload);
     }),
     updateDataThunk: thunk((actions, payload) => {
-        actions.setName(payload.name)
-        actions.setCourse(payload.course)
+        actions.setWeeklyTime(payload.weeklyTime);
+        actions.setTotalTime(payload.totalTime);
+        actions.setCurrentTime(payload.currentTime);
     })
 }
 
